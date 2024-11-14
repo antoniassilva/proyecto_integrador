@@ -28,7 +28,7 @@
 				</div>
 	
 				<div class="col-7 col-md-6">
-					<form action="search-results.html" method="GET" class="search-form">
+					<form action="/products/busqueda" method="GET" class="search-form">
 						<input type="text" name="search" placeholder="Buscar productos, marcas y más"
 							class="search-form_input">
 						<button type="submit" class="search-form_button"><i class="fas fa-search"></i></button>
@@ -87,10 +87,22 @@
 				<h2 class="products-title">Resultados de búsqueda</h2>
 			</div>
 			
-			<h2 class="col-12"> <i>///////////////////////////////////////// <br> Acá van los resultados de búsqueda. <br>
-			Eliminá esta etiqueta h2 y construí la sección con los resultados de búsqueda. <br>
-			////////////////
-			</h2>
+			<% for( let i = 0; i < listaProductos.length; i++ ) { %>
+				<div class="col-12 col-sm-6 col-lg-3">
+					<section class="product-box">
+						<a href="/products/id/<%= listaProductos[i].id %>">
+							<figure class="product-box_image">
+								<img src=<%= listaProductos[i].imagen %> alt="">
+							</figure>
+							<article class="product-box_data">
+								<h2><%= listaProductos[i].nombre_producto %></h2>
+								<p><%= listaProductos[i].descripcion_producto %></p>
+								<p>Comentarios: 12</p>
+							</article>
+						</a>
+					</section>
+				</div>
+				<% } %>
 
 
 	<!-- footer -->
