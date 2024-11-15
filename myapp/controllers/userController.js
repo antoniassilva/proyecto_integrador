@@ -3,7 +3,14 @@ const bcryptjs = require('bcryptjs');
 
 const userController = {
     register: (req, res) => {
-        return res.render("register"); // Renderiza la vista de registro
+        db.Users.findAll()
+        .then((result) => {
+            return res.send( result)
+        })
+        .catch((err) => {
+          return console.log(err);
+        });
+        
     },
     login: (req, res) => {
         return res.render("login"); // Renderiza la vista de inicio de sesión
