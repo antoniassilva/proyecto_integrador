@@ -1,3 +1,4 @@
+const { Association } = require('sequelize');
 const db = require('../database/models');
 const op = db.Sequelize.Op;
 
@@ -15,8 +16,11 @@ const productController = {
     },
     detalle: function (req, res) {
         let id = req.params.idProducto;
+        
 
-   db.Products.findByPk(id)
+   db.Products.findByPk(id, {
+    include: [{ association: "users" }] // Asegúrate de que el alias "Users" coincide con el definido en tu modelo
+})
    .then(function(results) {
     return res.render("product", {producto: results})
    })  
@@ -30,7 +34,16 @@ const productController = {
         return res.render("productAdd"); 
     },
 
-    saveCraer: function (req, res) {
+    saveCrear: function (req, res) {
+        let form = req.body; 
+
+    db.Products.create(form) 
+    .then((result) => {
+      return res.redirect("/products")
+    }).catch((err) => {
+      return console.log(err);
+      
+    });
         
     },
 

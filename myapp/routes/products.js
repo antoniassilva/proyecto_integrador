@@ -14,7 +14,7 @@ router.get('/id/:idProducto', indexController.detalle);
 router.get('/crear', indexController.showCrear);
 
 /* POST Creat  page. */
-router.post('/crear', indexController.saveCraer);
+router.post('/crear', indexController.saveCrear);
 
 /* GET Search page. */
 router.get('/busqueda', indexController.search);
