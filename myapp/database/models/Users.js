@@ -12,7 +12,7 @@ module.exports = function(sequelize, dataTypes){
             type: dataTypes.STRING,
         },
         usuario:{
-            type: dataTypes.DATE,
+            type: dataTypes.STRING,
         },
         contraseña:{
             type: dataTypes.STRING,
