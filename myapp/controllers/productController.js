@@ -30,21 +30,27 @@ const productController = {
 
         
     },
+   
+    
+
     showCrear: function (req, res) {
         return res.render("productAdd"); 
     },
+    
 
     saveCrear: function (req, res) {
         let form = req.body; 
 
-    db.Products.create(form) 
-    .then((result) => {
-      return res.redirect("/products")
-    }).catch((err) => {
-      return console.log(err);
-      
-    });
-        
+        form.usuario_id = req.session.user.id; 
+
+        db.Products.create(form)  
+            .then((result) => {
+                return res.redirect("/products");  
+            })
+            .catch((err) => {
+                console.log(err);
+                
+            });
     },
 
     search: function (req, res) {
@@ -63,6 +69,9 @@ const productController = {
         
         db.Products.findAll(filtro)
             .then((result) => {
+                if (!qs) {
+                    return res.send("Debe ingresar un término de búsqueda.");
+                }
                 if (result.length === 0) {
                     return res.send("No hay resultados para su criterio de búsqueda.");
                 }
@@ -74,6 +83,7 @@ const productController = {
                 
             });
     }
+   
 
 
 };

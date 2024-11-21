@@ -6,7 +6,11 @@
 <body>
 	<!-- Header -->
 
-	<%- include('./partials/header') %>
+	<% if (locals.user != undefined) { %>
+		<%- include('./partials/headerLog') %>
+	   <% } else { %>
+		<%- include('./partials/header') %>
+	  <% } %>
 	
 	<!-- /Header -->
 
