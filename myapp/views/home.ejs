@@ -5,8 +5,12 @@
 
 <body>
 	<!-- Header -->
+	<% if (locals.user != undefined) { %>
+		<%- include('./partials/headerLog') %>
+	   <% } else { %>
+		<%- include('./partials/header') %>
+	  <% } %>
 
-	<%- include('./partials/header') %>
 	
 	<!-- /Header -->
 	
