@@ -23,11 +23,11 @@ deletedAt TIMESTAMP NULL ON UPDATE CURRENT_TIMESTAMP,
 FOREIGN KEY (usuario_id) REFERENCES users (id)
 );
 
-INSERT INTO users (email ,usuario, contraseña) VALUES ("estanislaomiedziak@gmail.com", "estanislaom", "1234");
-INSERT INTO users (email ,usuario, contraseña) VALUES ("briangomez@gmail.com", "briang", "1234");
-INSERT INTO users (email ,usuario, contraseña) VALUES ("luisnavas@gmail.com", "luisn", "1234");
-INSERT INTO users (email ,usuario, contraseña) VALUES ("antoniasilva@gmail.com", "antonias", "1234");
-INSERT INTO users (email ,usuario, contraseña) VALUES ("paznobile@gmail.com", "pazn", "1234");
+INSERT INTO users (email ,usuario, contraseña) VALUES ("joaquin.silva@me.com",	"joaquin",	"$2a$10$ZFpe01qeai.iiGgz665rZut3JX/c2WWBxMHOvT5tkl37RwZT23vGi");
+INSERT INTO users (email ,usuario, contraseña) VALUES ("paularealini@gmail.com",	"paula",	"$2a$10$QZ6KyN7R1Rp.h7S6aUea3.SO7KZhbhJUSQnwVdztpmtgkScm.Mop6");
+INSERT INTO users (email ,usuario, contraseña) VALUES ("juana@gmail.com",	"juana",	"$2a$10$7H2RKhKmZ.ApjWtlBgfpdugVWd.ee/ctEfMc0dLLTaoOiTiWRn8Ne");
+INSERT INTO users (email ,usuario, contraseña) VALUES ("renato@gmail.com",	"renato",	"$2a$10$tgI36IM6bBYTsJR2pxxg7.4iwTe00rR80fhQYqFWO8pK9eNeOtCw6");
+INSERT INTO users (email ,usuario, contraseña) VALUES ("ramon@gmail.com",	"ramon",	"$2a$10$cP4LxjJrfct33GY5GTs77OzUH2IuUUelKBGr0SYHfgpCtwW6RcXJi");
 
 INSERT INTO products (usuario_id, imagen, nombre_producto, descripcion_producto) VALUES (1, "/images/products/audiculares.jpg", "Auriculares", "Auriculares con carga rápida, Extra Bass, larga duración de batería, deportes y mucho más. Auriculares con calidad de sonido excepcional y funciones de escucha inteligente.");
 INSERT INTO products (usuario_id, imagen, nombre_producto, descripcion_producto) VALUES (1, "/images/products/celular.jpg", "Samsung", "Capturá tus mejores momentos y revivilos cuando quieras con la cámara trasera de 8 Mpx. Además, con la cámara frontal con flash preparate para compartir selfies más iluminadas en tus redes sociales. Batería para todo el día y el espacio que necesites");

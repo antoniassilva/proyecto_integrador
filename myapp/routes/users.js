@@ -16,6 +16,7 @@ router.post('/login', userController.loginUser)
 
 router.post("/logout", userController.logout)
 
+router.get("/perfil", userController.perfil)
 
 
 

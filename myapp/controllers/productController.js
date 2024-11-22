@@ -40,6 +40,16 @@ const productController = {
 
     saveCrear: function (req, res) {
         let form = req.body; 
+        if (form.imagen === "") {
+            return res.send ("la imagen es un campo obligatorio")
+             };
+        
+        if (form.descripcion_producto === "") {
+                return res.send ("la descripcion es un campo obligatorio")
+                 }
+        if (form.nombre_producto=== "") {
+                return res.send ("el nombre es un campo obligatorio")
+                     }
 
         form.usuario_id = req.session.user.id; 
 
