@@ -47,19 +47,50 @@ const userController = {
     },
     
     results: (req, res) => {
-        /* let qs = req.query.email; */
-
         let form = req.body;
-        let pass = bcryptjs.hashSync(form.contraseña, 10)
-
-        form.contraseña = pass;
-       
-        db.Users.create(form)
-        .then((result) => {
-            return res.redirect("/users/login")
-        }).catch((err) => {
-            return console.log(err);
-        });
+    
+        // Validar que los campos obligatorios no estén vacíos
+        if (form.contraseña === "") {
+            return res.send("La contraseña es un campo obligatorio");
+        }
+        if (form.email === "") {
+            return res.send("El email es un campo obligatorio");
+        }
+        if (form.usuario === "") {
+            return res.send("El nombre de usuario es un campo obligatorio");
+        }
+    
+        // Verificar si el email ya está registrado
+        let filtro = {
+            where: {
+                email: form.email
+            }
+        };
+    
+        db.Users.findOne(filtro)
+            .then((result) => {
+                if (result) {
+                    // Si se encuentra un usuario con el mismo email
+                    return res.send("El email ya está registrado. Por favor, utiliza otro.");
+                } else {
+                    // Si no se encuentra, continuar con el registro
+                    let pass = bcryptjs.hashSync(form.contraseña, 10);
+                    form.contraseña = pass;
+    
+                    db.Users.create(form)
+                        .then(() => {
+                            return res.redirect("/users/login");
+                        })
+                        .catch((err) => {
+                            console.log(err);
+                            return res.send("Error al registrar el usuario");
+                        });
+                }
+            })
+            .catch((err) => {
+                console.log(err);
+                
+            });
     },
     logout: (req, res) => {
         req.session.destroy()
