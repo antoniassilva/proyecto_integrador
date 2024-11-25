@@ -4,7 +4,7 @@
 
 /*====== Variables ======*/
 :root {
-  --yellow: #EAC926;
+  --yellow: rgb(245, 236, 162);;
   --dark-blue: #03264C;
   --light-blue: #1259c3;
   --gray: #666666;
@@ -76,6 +76,12 @@ hr {
   display: block;
 }
 
+.logo {
+  max-width: 80px; 
+    max-height: 80px;
+    width: auto; 
+    height: auto;
+}
 .main-header_credit-link {
   font-size: 1.5em;
   margin-top: 20px;
@@ -154,11 +160,12 @@ hr {
 
 /*====== Banner ======*/
 .banner {
-  background-image: url(/images/img-home-banner.jpg);
+ 
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
   height: 100px;
+  
 }
 
 
@@ -523,7 +530,7 @@ textarea.form-input {
   padding: 12px 20px;
   font-size: 1.6em;
   font-weight: 500;
-  color: #ffffff;
+  color:black;
   background-color: var(--green);
   border: none;
   border-radius: 5px;
@@ -532,7 +539,7 @@ textarea.form-input {
 }
 
 .submit {
-  background-color: #EAC926;
+  background-color: rgb(245, 236, 162);
 }
 
 .ic1 .input {
