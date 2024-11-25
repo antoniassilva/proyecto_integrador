@@ -6,10 +6,10 @@ const productController = {
     index: function (req, res) {
     
         let filtro = {
-           
             order: [
                 ['createdAt', 'DESC']  
-            ]
+            ],
+            include: [{ association: "users" }] 
         };
     
     db.Products.findAll(filtro)
@@ -26,7 +26,7 @@ const productController = {
         
 
    db.Products.findByPk(id, {
-    include: [{ association: "users" }] // Asegúrate de que el alias "Users" coincide con el definido en tu modelo
+    include: [{ association: "users" }]
 })
    .then(function(results) {
     return res.render("product", {producto: results})
@@ -81,7 +81,8 @@ const productController = {
             },
             order: [
                 ['createdAt', 'DESC']  
-            ]
+            ],
+            include: [{ association: "users" }] 
         };
         
         db.Products.findAll(filtro)
@@ -99,7 +100,8 @@ const productController = {
                 console.log(err);
                 
             });
-    }
+    },
+    
    
 
 

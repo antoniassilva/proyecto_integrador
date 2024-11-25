@@ -7,6 +7,7 @@ const userController = {
         return res.render("register"); 
         
     },
+   
     login: (req, res) => {
         return res.render("login"); // Renderiza la vista de inicio de sesión
     },
@@ -94,12 +95,12 @@ const userController = {
     },
     logout: (req, res) => {
         req.session.destroy()
-        return res.redirect("/products/");
+        return res.redirect("/products");
     },
 
     perfil: (req, res) => {
         return res.render("perfil"); 
-    },
+    }
 };
 
 module.exports = userController;
