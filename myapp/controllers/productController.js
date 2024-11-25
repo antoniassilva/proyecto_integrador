@@ -5,7 +5,14 @@ const op = db.Sequelize.Op;
 const productController = {
     index: function (req, res) {
     
-    db.Products.findAll()
+        let filtro = {
+           
+            order: [
+                ['createdAt', 'DESC']  
+            ]
+        };
+    
+    db.Products.findAll(filtro)
     .then((result) => {
         return res.render("home", {listaProductos: result})
     })

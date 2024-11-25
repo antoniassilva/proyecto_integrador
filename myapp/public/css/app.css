@@ -543,6 +543,11 @@ textarea.form-input {
   border: 1px dashed var(--light-gray);
 }
 
+.index-title{
+  text-align: center;
+  margin: 20px 0;
+}
+
 /*====== Media-Queries ======*/
 @media (min-width: 768px) {
   .main-header_credit-link {
